@@ -10,42 +10,74 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 
 export const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const formRef = useRef(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!formRef.current) return;
 
     setIsSubmitting(true);
+    try {
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-    setTimeout(() => {
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error("EmailJS ortam değişkenleri eksik. .env dosyanızı kontrol edin.");
+      }
+
+      const result = await emailjs.sendForm(
+        serviceId,
+        templateId,
+        formRef.current,
+        { publicKey }
+      );
+
+      if (result.status === 200) {
+        toast({
+          title: "Mesaj Gönderildi!",
+          description:
+            "Mesajınız için teşekkürler. En kısa sürede geri döneceğim.",
+        });
+        formRef.current.reset();
+      } else {
+        throw new Error("Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin.");
+      }
+    } catch (err) {
       toast({
-        title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
+        title: "Hata",
+        description:
+          err?.message || "Mesaj gönderilirken bir sorun oluştu.",
+        variant: "destructive",
       });
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
   return (
     <section id="contact" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          Get In <span className="text-primary"> Touch</span>
+          İletişime <span className="text-primary"> Geçin</span>
         </h2>
 
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Have a project in mind or want to collaborate? Feel free to reach out.
-          I'm always open to discussing new opportunities.
+          Aklınıza takılan bir şey mi var? Projeleriniz hakkında konuşmak
+          mı istiyorsunuz? Ya da sadece selam vermek mi istiyorsunuz? Aşağıdaki
+          formu doldurun veya iletişim bilgilerimi kullanarak bana ulaşın.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="space-y-8">
             <h3 className="text-2xl font-semibold mb-6">
               {" "}
-              Contact Information
+              İletişim Bilgileri
             </h3>
 
             <div className="space-y-6 justify-center">
@@ -56,10 +88,10 @@ export const ContactSection = () => {
                 <div>
                   <h4 className="font-medium"> Email</h4>
                   <a
-                    href="mailto:hello@gmail.com"
+                    href="mailto:alper.arslan0505@gmail.com"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    hello@gmail.com
+                    alper.arslan0505@gmail.com
                   </a>
                 </div>
               </div>
@@ -68,12 +100,12 @@ export const ContactSection = () => {
                   <Phone className="h-6 w-6 text-primary" />{" "}
                 </div>
                 <div>
-                  <h4 className="font-medium"> Phone</h4>
+                  <h4 className="font-medium"> Telefon</h4>
                   <a
-                    href="tel:+11234567890"
+                    href="tel:+9005438938930"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    +1 (123) 456-7890
+                    +90 (543) 893-8930
                   </a>
                 </div>
               </div>
@@ -82,47 +114,40 @@ export const ContactSection = () => {
                   <MapPin className="h-6 w-6 text-primary" />{" "}
                 </div>
                 <div>
-                  <h4 className="font-medium"> Location</h4>
+                  <h4 className="font-medium"> Lokasyon</h4>
                   <a className="text-muted-foreground hover:text-primary transition-colors">
-                    Vancouver, BC, Canada
+                    Tekirdağ , Türkiye
                   </a>
                 </div>
               </div>
             </div>
 
             <div className="pt-8">
-              <h4 className="font-medium mb-4"> Connect With Me</h4>
+              <h4 className="font-medium mb-4"> Sosyal Medyada Ben</h4>
               <div className="flex space-x-4 justify-center">
-                <a href="#" target="_blank">
+                <a href="https://www.linkedin.com/in/alperarsln/" target="_blank">
                   <Linkedin />
                 </a>
-                <a href="#" target="_blank">
-                  <Twitter />
-                </a>
-                <a href="#" target="_blank">
+                
+                <a href="https://www.instagram.com/arslannnalper/" target="_blank">
                   <Instagram />
                 </a>
-                <a href="#" target="_blank">
-                  <Twitch />
-                </a>
+                
               </div>
             </div>
           </div>
 
-          <div
-            className="bg-card p-8 rounded-lg shadow-xs"
-            onSubmit={handleSubmit}
-          >
-            <h3 className="text-2xl font-semibold mb-6"> Send a Message</h3>
+          <div className="bg-card p-8 rounded-lg shadow-xs">
+            <h3 className="text-2xl font-semibold mb-6"> Mesaj Gönder</h3>
 
-            <form className="space-y-6">
+            <form className="space-y-6" ref={formRef} onSubmit={handleSubmit}>
               <div>
                 <label
                   htmlFor="name"
                   className="block text-sm font-medium mb-2"
                 >
                   {" "}
-                  Your Name
+                  Adınız
                 </label>
                 <input
                   type="text"
@@ -130,7 +155,7 @@ export const ContactSection = () => {
                   name="name"
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary"
-                  placeholder="Pedro Machado..."
+                  placeholder="Alper Arslan..."
                 />
               </div>
 
@@ -140,7 +165,7 @@ export const ContactSection = () => {
                   className="block text-sm font-medium mb-2"
                 >
                   {" "}
-                  Your Email
+                  Email Adresiniz
                 </label>
                 <input
                   type="email"
@@ -148,7 +173,7 @@ export const ContactSection = () => {
                   name="email"
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary"
-                  placeholder="john@gmail.com"
+                  placeholder="eposta@gmail.com"
                 />
               </div>
 
@@ -158,14 +183,14 @@ export const ContactSection = () => {
                   className="block text-sm font-medium mb-2"
                 >
                   {" "}
-                  Your Message
+                  Mesajınız
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary resize-none"
-                  placeholder="Hello, I'd like to talk about..."
+                  placeholder="Merhaba, sizinle şu yüzden iletişime geçmek istiyorum..."
                 />
               </div>
 
@@ -176,7 +201,7 @@ export const ContactSection = () => {
                   "cosmic-button w-full flex items-center justify-center gap-2"
                 )}
               >
-                {isSubmitting ? "Sending..." : "Send Message"}
+                {isSubmitting ? "Gönderiliyor..." : "Mesajı Gönder"}
                 <Send size={16} />
               </button>
             </form>
