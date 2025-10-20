@@ -1,0 +1,88 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "title": "Linguistics Student & Tech Enthusiast",
+    "description": "A linguist passionate about bridging the gap between language and technology. I'm interested in software development, localization, and technology projects.",
+    "contactButton": "Get In Touch",
+    "cvButton": "View My CV"
+  },
+  "about": {
+    "title": "Who",
+    "titleHighlight": "Am I?",
+    "subtitle": "Linguistics Student & Tech Enthusiast",
+    "description1": "Hello! I'm Alper Arslan, a Linguistics student at Dokuz Eylül University with a great passion for technology. I'm also developing myself in the field of software.",
+    "description2": "The rapid changes and innovations in the world of technology always excite me. Therefore, I focus on constantly improving my software development skills and learning new technologies.",
+    "contactButton": "Get In Touch",
+    "cvButton": "View My CV",
+    "coding": {
+      "title": "Coding",
+      "description": "Proficiency in various programming languages such as Python, JavaScript, and HTML/CSS."
+    },
+    "localization": {
+      "title": "Localization",
+      "description": "Adapting video games or different projects for different languages and cultures."
+    },
+    "projectManagement": {
+      "title": "Project Management",
+      "description": "Guiding projects from conceptual stage to completion with Agile methodologies."
+    }
+  },
+  "projects": {
+    "title": "Featured",
+    "titleHighlight": "Projects",
+    "description": "Here are some of my recent projects. Each project is an output of the new skills I've learned and reflects my continuous development.",
+    "viewGithub": "View My GitHub",
+    "comingSoon": "Coming Soon",
+    "detailsSoon": "Details coming soon",
+    "project1": {
+      "title": "Simple Dictionary App",
+      "description": "A simple dictionary application created using Python and Tkinter."
+    },
+    "project2": {
+      "title": "Portfolio Website",
+      "description": "Personal portfolio website created using HTML, CSS, Bootstrap and JavaScript."
+    },
+    "project3": {
+      "title": "New Project",
+      "description": "Working on an exciting project."
+    }
+  },
+  "contact": {
+    "title": "Get In",
+    "titleHighlight": "Touch",
+    "description": "Have something on your mind? Want to discuss your projects? Or just want to say hello? Fill out the form below or reach out to me using my contact information.",
+    "info": "Contact Information",
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location",
+    "locationValue": "Tekirdağ, Turkey",
+    "followMe": "Follow Me!",
+    "form": {
+      "title": "Send Message",
+      "name": "Your Name",
+      "namePlaceholder": "Alper Arslan...",
+      "email": "Your Email",
+      "emailPlaceholder": "email@gmail.com",
+      "message": "Your Message",
+      "messagePlaceholder": "Hello, I would like to get in touch with you about...",
+      "submit": "Send Message",
+      "sending": "Sending..."
+    },
+    "toast": {
+      "success": "Message Sent!",
+      "successDesc": "Thank you for your message. I will get back to you as soon as possible.",
+      "error": "Error",
+      "errorDesc": "An error occurred while sending the message."
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "madeWith": "Made with"
+  }
+}

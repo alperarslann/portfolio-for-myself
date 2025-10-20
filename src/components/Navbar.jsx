@@ -1,18 +1,19 @@
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import { useEffect, useState } from "react";
-
-const navItems = [
-  { name: "Anasayfa", href: "#hero" },
-  { name: "Hakkımda", href: "#about" },
-  //{ name: "Yetenekler", href: "#skills" }, // Şimdilik silindi.
-  { name: "Projeler", href: "#projects" },
-  { name: "İletişim", href: "#contact" },
-];
+import { useTranslation } from "react-i18next";
 
 export const Navbar = () => {
+  const { t, i18n } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const navItems = [
+    { name: t('nav.home'), href: "#hero" },
+    { name: t('nav.about'), href: "#about" },
+    { name: t('nav.projects'), href: "#projects" },
+    { name: t('nav.contact'), href: "#contact" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,6 +23,12 @@ export const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const toggleLanguage = () => {
+    const newLang = i18n.language === 'tr' ? 'en' : 'tr';
+    i18n.changeLanguage(newLang);
+  };
+
   return (
     <nav
       className={cn(
@@ -41,7 +48,7 @@ export const Navbar = () => {
         </a>
 
         {/* desktop nav */}
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item, key) => (
             <a
               key={key}
@@ -51,6 +58,20 @@ export const Navbar = () => {
               {item.name}
             </a>
           ))}
+          
+          {/* Language Toggle */}
+          <button
+            onClick={toggleLanguage}
+            className={cn(
+              "px-3 py-1.5 rounded-full transition-all duration-300",
+              "bg-primary/10 hover:bg-primary/20 border border-primary/30",
+              "flex items-center gap-1.5 text-sm font-medium"
+            )}
+            aria-label="Toggle Language"
+          >
+            <Globe className="h-4 w-4" />
+            <span className="uppercase">{i18n.language === 'tr' ? 'EN' : 'TR'}</span>
+          </button>
         </div>
 
         {/* mobile nav */}
@@ -83,6 +104,20 @@ export const Navbar = () => {
                 {item.name}
               </a>
             ))}
+            
+            {/* Mobile Language Toggle */}
+            <button
+              onClick={toggleLanguage}
+              className={cn(
+                "px-4 py-2 rounded-full transition-all duration-300 mx-auto",
+                "bg-primary/10 hover:bg-primary/20 border border-primary/30",
+                "flex items-center gap-2 text-sm font-medium"
+              )}
+              aria-label="Toggle Language"
+            >
+              <Globe className="h-4 w-4" />
+              <span className="uppercase">{i18n.language === 'tr' ? 'EN' : 'TR'}</span>
+            </button>
           </div>
         </div>
       </div>

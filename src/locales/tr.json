@@ -1,0 +1,88 @@
+{
+  "nav": {
+    "home": "Anasayfa",
+    "about": "Hakkımda",
+    "projects": "Projeler",
+    "contact": "İletişim"
+  },
+  "hero": {
+    "greeting": "Merhaba, Ben",
+    "title": "Dilbilim Öğrencisi ve Teknoloji Tutkunu",
+    "description": "Dil ve teknoloji arasındaki köprüyü kurmaya tutkuyla bağlı bir dilbilimciyim. Yazılım geliştirme, yerelleştirme ve teknoloji projeleriyle ilgileniyorum.",
+    "contactButton": "Benimle İletişime Geç",
+    "cvButton": "Özgeçmişimi Görüntüle"
+  },
+  "about": {
+    "title": "Benim",
+    "titleHighlight": "Kimim?",
+    "subtitle": "Dilbilim Öğrencisi ve Teknoloji Tutkunu",
+    "description1": "Merhaba! Ben Alper Arslan, Dokuz Eylül Üniversitesi'nde Dilbilimi öğrencisiyim ve teknolojiye büyük bir tutkum var. Ayrıca kendimi yazılım alanında geliştiriyorum.",
+    "description2": "Teknoloji dünyasındaki hızlı değişim ve yenilikler beni her zaman heyecanlandırıyor. Bu nedenle, yazılım geliştirme becerilerimi sürekli olarak geliştirmeye ve yeni teknolojileri öğrenmeye odaklanıyorum.",
+    "contactButton": "Benimle İletişime Geç",
+    "cvButton": "Özgeçmişimi Görüntüle",
+    "coding": {
+      "title": "Kodlama",
+      "description": "Python, JavaScript ve HTML/CSS gibi çeşitli programlama dillerinde yetkinlik."
+    },
+    "localization": {
+      "title": "Yerelleştirme",
+      "description": "Video oyunların veya farklı projelerinin farklı diller ve kültürler için uyarlanması."
+    },
+    "projectManagement": {
+      "title": "Proje Yönetimi",
+      "description": "Agile metodolojilerle projeleri kavramsal aşamadan tamamlanmaya kadar yönlendirme."
+    }
+  },
+  "projects": {
+    "title": "Öne Çıkan",
+    "titleHighlight": "Projeler",
+    "description": "İşte son projelerimden bazıları. Her proje öğrendiğim yeni becerilerin birer çıktısıdır ve benim sürekli gelişimimi yansıtır.",
+    "viewGithub": "GitHub'ıma Göz At",
+    "comingSoon": "Çok Yakında",
+    "detailsSoon": "Detaylar yakında",
+    "project1": {
+      "title": "Basit Sözcük Uygulaması",
+      "description": "Python ve Tkinter kullanarak oluşturulmuş basit bir sözcük uygulaması."
+    },
+    "project2": {
+      "title": "Portfolyo Web Sitesi",
+      "description": "HTML, CSS, Bootstrap ve JavaScript kullanarak oluşturulmuş kişisel portfolyo web sitesi."
+    },
+    "project3": {
+      "title": "Yeni Proje",
+      "description": "Heyecan verici bir proje üzerinde çalışıyorum."
+    }
+  },
+  "contact": {
+    "title": "İletişime",
+    "titleHighlight": "Geçin",
+    "description": "Aklınıza takılan bir şey mi var? Projeleriniz hakkında konuşmak mı istiyorsunuz? Ya da sadece selam vermek mi istiyorsunuz? Aşağıdaki formu doldurun veya iletişim bilgilerimi kullanarak bana ulaşın.",
+    "info": "İletişim Bilgileri",
+    "email": "Email",
+    "phone": "Telefon",
+    "location": "Lokasyon",
+    "locationValue": "Tekirdağ, Türkiye",
+    "followMe": "Benimle İletişime Geçin!",
+    "form": {
+      "title": "Mesaj Gönder",
+      "name": "Adınız",
+      "namePlaceholder": "Alper Arslan...",
+      "email": "Email Adresiniz",
+      "emailPlaceholder": "eposta@gmail.com",
+      "message": "Mesajınız",
+      "messagePlaceholder": "Merhaba, sizinle şu yüzden iletişime geçmek istiyorum...",
+      "submit": "Mesajı Gönder",
+      "sending": "Gönderiliyor..."
+    },
+    "toast": {
+      "success": "Mesaj Gönderildi!",
+      "successDesc": "Mesajınız için teşekkürler. En kısa sürede geri döneceğim.",
+      "error": "Hata",
+      "errorDesc": "Mesaj gönderilirken bir sorun oluştu."
+    }
+  },
+  "footer": {
+    "rights": "Tüm hakları saklıdır.",
+    "madeWith": "ile yapıldı"
+  }
+}

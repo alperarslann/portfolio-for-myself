@@ -1,41 +1,41 @@
-import { Braces,  Handshake, Languages } from "lucide-react";
+import { Braces, Handshake, Languages } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export const AboutSection = () => {
+  const { t } = useTranslation();
+  
   return (
     <section id="about" className="py-24 px-4 relative">
-      {" "}
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          Benim <span className="text-primary"> Kimim?</span>
+          {t('about.title')} <span className="text-primary">{t('about.titleHighlight')}</span>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h3 className="text-2xl font-semibold">
-              Dilbilim Öğrencisi ve Teknoloji Tutkunu
+              {t('about.subtitle')}
             </h3>
 
             <p className="text-muted-foreground">
-              Merhaba! Ben Alper Arslan, Dokuz Eylül Üniversitesi'nde Dilbilimi öğrencisiyim ve teknolojiye büyük bir tutkum var. 
-              Ayrıca kendimi kendimi yazılım alanında geliştiriyorum.
+              {t('about.description1')}
             </p>
 
             <p className="text-muted-foreground">
-              Teknoloji dünyasındaki hızlı değişim ve yenilikler beni her zaman heyecanlandırıyor. 
-              Bu nedenle, yazılım geliştirme becerilerimi sürekli olarak geliştirmeye ve yeni teknolojileri öğrenmeye odaklanıyorum.
+              {t('about.description2')}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
               <a href="#contact" className="cosmic-button">
-                {" "}
-                Benimle İletişime Geç
+                {t('about.contactButton')}
               </a>
 
               <a
-                href="/Alper_Arslan_CV.pdf" target="_blank"
+                href="/Alper_Arslan_CV.pdf" 
+                target="_blank"
                 className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
               >
-                Özgeçmişimi Görüntüle
+                {t('about.cvButton')}
               </a>
             </div>
           </div>
@@ -47,10 +47,9 @@ export const AboutSection = () => {
                   <Braces className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg">Programlama</h4>
+                  <h4 className="font-semibold text-lg">{t('about.coding.title')}</h4>
                   <p className="text-muted-foreground">
-                    Python, JavaScript ve HTML/CSS gibi çeşitli programlama dillerinde
-                    yetkinlik.
+                    {t('about.coding.description')}
                   </p>
                 </div>
               </div>
@@ -61,10 +60,9 @@ export const AboutSection = () => {
                   <Languages className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg">Yerelleştirme</h4>
+                  <h4 className="font-semibold text-lg">{t('about.localization.title')}</h4>
                   <p className="text-muted-foreground">
-                    Video oyunların veya farklı projelerinin farklı diller ve kültürler için
-                    uyarlanması.
+                    {t('about.localization.description')}
                   </p>
                 </div>
               </div>
@@ -76,10 +74,9 @@ export const AboutSection = () => {
                 </div>
 
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg">Takım Çalışması</h4>
+                  <h4 className="font-semibold text-lg">{t('about.projectManagement.title')}</h4>
                   <p className="text-muted-foreground">
-                    Farklı disiplinlerden gelen bireylerle etkili iletişim ve iş birliği
-                    becerileri.
+                    {t('about.projectManagement.description')}
                   </p>
                 </div>
               </div>
