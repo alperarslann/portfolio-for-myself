@@ -31,8 +31,9 @@ export const AboutSection = () => {
               </a>
 
               <a
-                href="/Alper_Arslan_CV.pdf" 
+                href="YOUR_CV_LINK_HERE" 
                 target="_blank"
+                rel="noopener noreferrer"
                 className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
               >
                 {t('about.cvButton')}
