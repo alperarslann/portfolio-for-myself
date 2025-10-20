@@ -20,7 +20,7 @@ i18n
   .init({
     resources,
     fallbackLng: 'tr',
-    debug: false,
+    debug: true, // Enable debug mode to see i18n errors in console
     interpolation: {
       escapeValue: false
     },
