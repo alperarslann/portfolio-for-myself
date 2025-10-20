@@ -75,14 +75,29 @@ export const Navbar = () => {
         </div>
 
         {/* mobile nav */}
+        <div className="md:hidden flex items-center gap-3">
+          {/* Mobile Language Toggle - Next to hamburger menu */}
+          <button
+            onClick={toggleLanguage}
+            className={cn(
+              "px-2.5 py-1.5 rounded-full transition-all duration-300 z-50",
+              "bg-primary/10 hover:bg-primary/20 border border-primary/30",
+              "flex items-center gap-1.5 text-xs font-medium"
+            )}
+            aria-label="Toggle Language"
+          >
+            <Globe className="h-3.5 w-3.5" />
+            <span className="uppercase">{i18n.language === 'tr' ? 'EN' : 'TR'}</span>
+          </button>
 
-        <button
-          onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="md:hidden p-2 text-foreground z-50"
-          aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}{" "}
-        </button>
+          <button
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+            className="p-2 text-foreground z-50"
+            aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}{" "}
+          </button>
+        </div>
 
         <div
           className={cn(
@@ -104,20 +119,6 @@ export const Navbar = () => {
                 {item.name}
               </a>
             ))}
-            
-            {/* Mobile Language Toggle */}
-            <button
-              onClick={toggleLanguage}
-              className={cn(
-                "px-4 py-2 rounded-full transition-all duration-300 mx-auto",
-                "bg-primary/10 hover:bg-primary/20 border border-primary/30",
-                "flex items-center gap-2 text-sm font-medium"
-              )}
-              aria-label="Toggle Language"
-            >
-              <Globe className="h-4 w-4" />
-              <span className="uppercase">{i18n.language === 'tr' ? 'EN' : 'TR'}</span>
-            </button>
           </div>
         </div>
       </div>
